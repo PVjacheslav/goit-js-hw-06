@@ -12,3 +12,13 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+
+const list = document.querySelector('.gallary');
+
+function createMarkup(arr) {
+  return arr.map(({ url, alt }) => {
+    return `<li class="js-item"><img style="border: 2px solid green; width: 200px; height: auto; src="${url}" alt="${url}" width = '300'></li>`;
+  });
+}
+list.insertAdjacentHTML("afterbegin", createMarkup(images).join(""));
