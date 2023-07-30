@@ -14,11 +14,14 @@ const images = [
 ];
 
 
-const list = document.querySelector('.gallary');
+const list = document.querySelector('.gallery')
 
 function createMarkup(arr) {
-  return arr.map(({ url, alt }) => {
-    return `<li class="js-item"><img style="border: 2px solid green; width: 200px; height: auto; src="${url}" alt="${url}" width = '300'></li>`;
-  });
-}
-list.insertAdjacentHTML("afterbegin", createMarkup(images).join(""));
+  const markup = arr.map(({url, alt}) => `<li>
+  <img src="${url}" alt="${alt}" width="500">
+</li>`).join('');
+
+list.insertAdjacentHTML('beforeend', markup);
+};
+
+createMarkup(images)
